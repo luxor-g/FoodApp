@@ -1,32 +1,69 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <Application xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="FoodApp.App">
-    <!--
-        Define global resources and styles here, that apply to all pages in your app.
-    -->
-    <Application.Resources>
-        <ResourceDictionary>
-            <Color x:Key="Primary">#2196F3</Color>
-            <Style TargetType="Button">
-                <Setter Property="TextColor" Value="White"></Setter>
-                <Setter Property="VisualStateManager.VisualStateGroups">
-                    <VisualStateGroupList>
-                        <VisualStateGroup x:Name="CommonStates">
-                            <VisualState x:Name="Normal">
-                                <VisualState.Setters>
-                                    <Setter Property="BackgroundColor" Value="{StaticResource Primary}" />
-                                </VisualState.Setters>
-                            </VisualState>
-                            <VisualState x:Name="Disabled">
-                                <VisualState.Setters>
-                                    <Setter Property="BackgroundColor" Value="#332196F3" />
-                                </VisualState.Setters>
-                            </VisualState>
-                        </VisualStateGroup>
-                    </VisualStateGroupList>
-                </Setter>
-            </Style>
-        </ResourceDictionary>        
-    </Application.Resources>
+	<!--
+		Define global resources and styles here, that apply to all pages in your app.
+	-->
+
+
+
+	<Application.Resources>
+		<ResourceDictionary>
+
+			<Color x:Key="primary_color">#F1801E</Color>
+			<Color x:Key="background_color">#222</Color>
+			<Color x:Key="text_field_color">#101010</Color>
+			<Color x:Key="white_color">#EEE</Color>
+			<Color x:Key="grey_color">#888</Color>
+
+			<Style TargetType="Button">
+				<Setter Property="HorizontalOptions" Value="Fill"/>
+				<Setter Property="HeightRequest" Value="45" />
+				<Setter Property="FontAttributes" Value="Bold" />
+				<Setter Property="FontFamily" Value="Roboto" />
+				<Setter Property="TextColor" Value="{StaticResource white_color}" />
+				<Setter Property="CornerRadius" Value="10"/>
+				<Setter Property="FontSize" Value="16"/>
+				<Setter Property="VisualStateManager.VisualStateGroups">
+					<VisualStateGroupList>
+						<VisualStateGroup x:Name="CommonStates">
+							<VisualState x:Name="Normal">
+								<VisualState.Setters>
+									<Setter Property="BackgroundColor" Value="{StaticResource primary_color}" />
+								</VisualState.Setters>
+							</VisualState>
+							<VisualState x:Name="Disabled">
+								<VisualState.Setters>
+									<Setter Property="BackgroundColor" Value="#332196F3" />
+								</VisualState.Setters>
+							</VisualState>
+						</VisualStateGroup>
+					</VisualStateGroupList>
+				</Setter>
+			</Style>
+
+			<Style x:Key="titleCenter" TargetType="Label">
+				<Setter Property="FontSize" Value="40" />
+				<Setter Property="HorizontalOptions" Value="Center"/>
+				<Setter Property="FontAttributes" Value="Bold" />
+				<Setter Property="FontFamily" Value="Roboto" />
+				<Setter Property="TextColor" Value="{StaticResource white_color}"/>
+			</Style>
+			
+			<Style TargetType="Label">
+				<Setter Property="FontSize" Value="16"/>
+				<Setter Property="TextColor" Value="{StaticResource grey_color}"/>
+			</Style>
+			
+			<Style TargetType="Entry">
+				<Setter Property="BackgroundColor" Value="{StaticResource text_field_color}" />
+				<Setter Property="PlaceholderColor" Value="{StaticResource grey_color}" />
+				<Setter Property="TextColor" Value="{StaticResource white_color}" />
+				<Setter Property="FontSize" Value="16"/>
+				<Setter Property="HeightRequest" Value="45" />
+			</Style>
+			
+		</ResourceDictionary>
+	</Application.Resources>
 </Application>

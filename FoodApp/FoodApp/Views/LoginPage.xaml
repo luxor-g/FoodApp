@@ -1,14 +1,40 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d"
-             x:Class="FoodApp.Views.LoginPage"
-             Shell.NavBarIsVisible="False">
-    <ContentPage.Content>
-        <StackLayout Padding="10,0,10,0" VerticalOptions="Center">
-            <Button VerticalOptions="Center" Text="Login" Command="{Binding LoginCommand}"/>
-        </StackLayout>
-    </ContentPage.Content>
+						 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+						 xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+						 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+						 mc:Ignorable="d"
+						 x:Class="FoodApp.Views.LoginPage"
+						 Shell.NavBarIsVisible="False">
+
+	<ContentPage.BackgroundColor>
+		<Color>#222</Color>
+	</ContentPage.BackgroundColor>
+
+	<ContentPage.Content>
+		<Grid>
+			<AbsoluteLayout>
+				<Image Aspect="AspectFit" Opacity="0.05" Source="flower.png" AbsoluteLayout.LayoutBounds="5,-0.4,350,350" AbsoluteLayout.LayoutFlags="PositionProportional"/>
+			</AbsoluteLayout>
+
+			<StackLayout VerticalOptions="Fill" Margin="35,10,35,20">
+				<StackLayout VerticalOptions="Start">
+					<Label Margin="0,70,0,0"  Text="Iniciar Sesión" Style="{StaticResource Key=titleCenter}"/>
+					<Label Margin="0,0,0,35" Text="Introduzca sus datos para iniciar sesión" HorizontalOptions="Center"/>
+					<Entry Margin="0,0,0,5" Placeholder="Correo Electrónico" Keyboard="Email" ReturnType="Next" IsSpellCheckEnabled="False" IsTextPredictionEnabled="False"  Text="{Binding Text, Mode=TwoWay}"/>
+					<Entry Margin="0,0,0,35" Placeholder="Contraseña" Keyboard="Text" ReturnType="Done" IsSpellCheckEnabled="False" IsTextPredictionEnabled="False" IsPassword="true"/>
+					<Button Margin="0,0,0,5" Text="Iniciar Sesión"/>
+					<Label Text="¿Ha olvidado la contraseña?" HorizontalOptions="Center"/>
+				</StackLayout>
+
+				<StackLayout VerticalOptions="CenterAndExpand"/>
+
+				<StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="End">
+					<Label Text="¿No tiene una cuenta?"/>
+					<Label Text="Regístrese" FontAttributes="Bold" TextColor="{StaticResource primary_color}"/>
+				</StackLayout>
+			</StackLayout>
+		</Grid>
+	</ContentPage.Content>
+	
 </ContentPage>

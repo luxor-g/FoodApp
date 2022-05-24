@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodApp.Android", "FoodApp\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodApp.iOS", "FoodApp\FoodApp.iOS\FoodApp.iOS.csproj", "{D950A00E-97BB-4064-ABCD-C1492B64538D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodApp", "FoodApp\FoodApp\FoodApp.csproj", "{B3F3FC41-B824-4F35-9F55-6E697E1263A2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FoodApp", "FoodApp\FoodApp\FoodApp.csproj", "{B3F3FC41-B824-4F35-9F55-6E697E1263A2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
