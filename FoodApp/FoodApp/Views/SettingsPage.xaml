@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+						 x:Class="FoodApp.Views.SettingsPage"
+						 Shell.NavBarIsVisible="False">
+
+	<ContentPage.BackgroundColor>
+		<Color>#222</Color>
+	</ContentPage.BackgroundColor>
+
+	<ContentPage.Content>
+		<Grid>
+			<AbsoluteLayout>
+				<Image Style="{StaticResource flower}"/>
+			</AbsoluteLayout>
+
+			<StackLayout VerticalOptions="Fill" Margin="0,0,0,0" Spacing="0">
+				<StackLayout Margin="35,15,15,10" VerticalOptions="Start" Orientation="Horizontal">
+					<Label Text="Opciones" Style="{StaticResource titleLeft}" VerticalOptions="Center"/>
+					<Button Text="" Style="{StaticResource microButton}" BackgroundColor="Transparent"/>
+				</StackLayout>
+				
+				<Button Text=" Usuario" Style="{StaticResource settingButton}" IsEnabled="False" BackgroundColor="#333"/>
+				<Button Text=" Cambiar Nombre" Style="{StaticResource settingButton}" BackgroundColor="{StaticResource background_color}"/>
+				<Button Text=" Cambiar Email" Style="{StaticResource settingButton}" BackgroundColor="{StaticResource background_color}"/>
+				<Button Text=" Cambiar Contraseña" Style="{StaticResource settingButton}" BackgroundColor="{StaticResource background_color}"/>
+				<Button Text=" Cerrar Sesión" Style="{StaticResource settingButton}" BackgroundColor="{StaticResource background_color}"/>
+
+				<Button Text=" Asistente" Style="{StaticResource settingButton}" IsEnabled="False" BackgroundColor="#333"/>
+				<Button Text=" Subtítulos" Style="{StaticResource settingButton}" BackgroundColor="{StaticResource background_color}"/>
+				<Button Text=" fdsfdsfds" Style="{StaticResource settingButton}" BackgroundColor="{StaticResource background_color}"/>
+				<Button Text=" Velocidad" Style="{StaticResource settingButton}" BackgroundColor="{StaticResource background_color}"/>
+
+			</StackLayout>
+		</Grid>
+	</ContentPage.Content>
+
+
+</ContentPage>

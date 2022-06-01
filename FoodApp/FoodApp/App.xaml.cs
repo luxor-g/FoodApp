@@ -1,4 +1,4 @@
-﻿using FoodApp.Services;
+using FoodApp.Services;
 using Xamarin.Forms;
 
 namespace FoodApp

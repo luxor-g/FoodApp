@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FoodApp.Views.StartUpPage"
+						 Shell.NavBarIsVisible="False">
+
+	<ContentPage.BackgroundColor>
+		<Color>#222</Color>
+	</ContentPage.BackgroundColor>
+
+	<ContentPage.Content>
+		<Grid>
+			<AbsoluteLayout>
+				<Image Style="{StaticResource flower}"/>
+			</AbsoluteLayout>
+
+			<StackLayout VerticalOptions="Fill" Margin="35,0,35,0">
+				<StackLayout VerticalOptions="CenterAndExpand">
+					<Image Aspect="AspectFit" Source="logo.png" HeightRequest="180" VerticalOptions="Center"/>
+					<StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+						<Label Margin="0,0,0,0" Text="Food" TextColor="{StaticResource primary_color}" FontSize="50" FontFamily="Title"/>
+						<Label Margin="0,0,0,0" Text="App" FontSize="50" FontFamily="Title"/>
+					</StackLayout>
+				</StackLayout>
+
+					<StackLayout VerticalOptions="End" Margin="0,0,0,70">
+					<Label Margin="0,0,0,35" Text="Recetas fáciles paso a paso controladas mediante voz." HorizontalTextAlignment="Center" VerticalOptions="Center" HorizontalOptions="Center"/>
+					<Button Margin="0,0,0,10" Text="Iniciar Sesión" Clicked="GoToLogin" Style="{StaticResource roundButton}"/>
+					<Button Margin="0,0,0,0" Text="Registrarse" Clicked="GoToRegister" Style="{StaticResource roundButton}" TextColor="{StaticResource primary_color}" BackgroundColor="{StaticResource background_color}" BorderColor="{StaticResource primary_color}" BorderWidth="2"/>
+				</StackLayout>
+			</StackLayout>
+		</Grid>
+	</ContentPage.Content>
+</ContentPage>

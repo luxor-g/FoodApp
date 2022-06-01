@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FoodApp.Views.StepView">
+  <ContentView.Content>
+		<Grid Margin="35,0,35,0">
+			<Label x:Name="Number" Text="❶" TextColor="{StaticResource primary_color}" FontSize="40" VerticalOptions="Start" HorizontalOptions="Start"/>
+			<Label x:Name="Description" Margin="40,10,0,0" Text="Etiam sodales sagittis odio, efficitur posuere nulla vulputate et. In mattis ipsum." HorizontalOptions="End"/>
+		</Grid>
+  </ContentView.Content>
+</ContentView>

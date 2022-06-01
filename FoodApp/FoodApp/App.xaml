@@ -5,37 +5,35 @@
 	<!--
 		Define global resources and styles here, that apply to all pages in your app.
 	-->
-
-
-
 	<Application.Resources>
 		<ResourceDictionary>
 
+			<!-- Colors -->
 			<Color x:Key="primary_color">#F1801E</Color>
 			<Color x:Key="background_color">#222</Color>
-			<Color x:Key="text_field_color">#101010</Color>
 			<Color x:Key="white_color">#EEE</Color>
 			<Color x:Key="grey_color">#888</Color>
+			<Color x:Key="text_field_color">#101010</Color>
 
+			<!-- Buttons -->
 			<Style TargetType="Button">
-				<Setter Property="HorizontalOptions" Value="Fill"/>
-				<Setter Property="HeightRequest" Value="45" />
-				<Setter Property="FontAttributes" Value="Bold" />
-				<Setter Property="FontFamily" Value="Roboto" />
-				<Setter Property="TextColor" Value="{StaticResource white_color}" />
 				<Setter Property="CornerRadius" Value="10"/>
+				<Setter Property="FontAttributes" Value="Bold"/>
 				<Setter Property="FontSize" Value="16"/>
+				<Setter Property="HeightRequest" Value="45"/>
+				<Setter Property="HorizontalOptions" Value="Fill"/>
+				<Setter Property="TextColor" Value="{StaticResource white_color}"/>
 				<Setter Property="VisualStateManager.VisualStateGroups">
 					<VisualStateGroupList>
 						<VisualStateGroup x:Name="CommonStates">
 							<VisualState x:Name="Normal">
 								<VisualState.Setters>
-									<Setter Property="BackgroundColor" Value="{StaticResource primary_color}" />
+									<Setter Property="BackgroundColor" Value="{StaticResource primary_color}"/>
 								</VisualState.Setters>
 							</VisualState>
 							<VisualState x:Name="Disabled">
 								<VisualState.Setters>
-									<Setter Property="BackgroundColor" Value="#332196F3" />
+									<Setter Property="BackgroundColor" Value="#332196F3"/>
 								</VisualState.Setters>
 							</VisualState>
 						</VisualStateGroup>
@@ -43,27 +41,88 @@
 				</Setter>
 			</Style>
 
-			<Style x:Key="titleCenter" TargetType="Label">
-				<Setter Property="FontSize" Value="40" />
-				<Setter Property="HorizontalOptions" Value="Center"/>
-				<Setter Property="FontAttributes" Value="Bold" />
-				<Setter Property="FontFamily" Value="Roboto" />
+			<Style x:Key="roundButton" TargetType="Button">
+				<Setter Property="CornerRadius" Value="30"/>
+				<Setter Property="FontAttributes" Value="Bold"/>
+				<Setter Property="FontSize" Value="16"/>
+				<Setter Property="HeightRequest" Value="45"/>
+				<Setter Property="HorizontalOptions" Value="Fill"/>
 				<Setter Property="TextColor" Value="{StaticResource white_color}"/>
 			</Style>
-			
+
+			<Style x:Key="transparentButton" TargetType="Button">
+				<Setter Property="BackgroundColor" Value="Transparent"/>
+				<Setter Property="CornerRadius" Value="0"/>
+				<Setter Property="FontAttributes" Value="None"/>
+				<Setter Property="HeightRequest" Value="45"/>
+				<Setter Property="HorizontalOptions" Value="Center"/>
+				<Setter Property="TextColor" Value="{StaticResource grey_color}"/>
+			</Style>
+
+			<Style x:Key="microButton" TargetType="Button">
+				<Setter Property="BackgroundColor" Value="Transparent"/>
+				<Setter Property="CornerRadius" Value="0"/>
+				<Setter Property="FontFamily" Value="Segoe"/>
+				<Setter Property="FontSize" Value="30"/>
+				<Setter Property="HeightRequest" Value="50"/>
+				<Setter Property="HorizontalOptions" Value="End"/>
+				<Setter Property="VerticalOptions" Value="Center"/>
+				<Setter Property="WidthRequest" Value="60"/>
+			</Style>
+
+			<Style x:Key="settingButton" TargetType="Button">
+				<Setter Property="BackgroundColor" Value="{StaticResource background_color}"/>
+				<Setter Property="BorderColor" Value="{StaticResource grey_color}"/>
+				<Setter Property="BorderWidth" Value="1"/>
+				<Setter Property="CornerRadius" Value="0"/>
+				<Setter Property="FontFamily" Value="Segoe"/>
+				<Setter Property="Margin" Value="-3,0,-3,0"/>
+			</Style>
+
+			<!-- Labels -->
 			<Style TargetType="Label">
 				<Setter Property="FontSize" Value="16"/>
 				<Setter Property="TextColor" Value="{StaticResource grey_color}"/>
 			</Style>
-			
-			<Style TargetType="Entry">
-				<Setter Property="BackgroundColor" Value="{StaticResource text_field_color}" />
-				<Setter Property="PlaceholderColor" Value="{StaticResource grey_color}" />
-				<Setter Property="TextColor" Value="{StaticResource white_color}" />
-				<Setter Property="FontSize" Value="16"/>
-				<Setter Property="HeightRequest" Value="45" />
+
+			<Style x:Key="titleCenter" TargetType="Label">
+				<Setter Property="FontAttributes" Value="Bold"/>
+				<Setter Property="FontSize" Value="40"/>
+				<Setter Property="HorizontalOptions" Value="Center"/>
+				<Setter Property="TextColor" Value="{StaticResource white_color}"/>
 			</Style>
-			
+
+			<Style x:Key="titleLeft" TargetType="Label">
+				<Setter Property="FontAttributes" Value="Bold"/>
+				<Setter Property="FontSize" Value="26"/>
+				<Setter Property="HorizontalOptions" Value="StartAndExpand"/>
+				<Setter Property="TextColor" Value="{StaticResource white_color}"/>
+				<Setter Property="VerticalOptions" Value="Center"/>
+			</Style>
+
+			<Style x:Key="icon" TargetType="Label">
+				<Setter Property="FontFamily" Value="Segoe"/>
+				<Setter Property="FontSize" Value="13"/>
+				<Setter Property="VerticalTextAlignment" Value="Center"/>
+			</Style>
+
+			<!-- Others -->
+			<Style TargetType="Entry">
+				<Setter Property="BackgroundColor" Value="{StaticResource text_field_color}"/>
+				<Setter Property="FontSize" Value="16"/>
+				<Setter Property="HeightRequest" Value="45"/>
+				<Setter Property="PlaceholderColor" Value="{StaticResource grey_color}"/>
+				<Setter Property="TextColor" Value="{StaticResource white_color}"/>
+			</Style>
+
+			<Style x:Key="flower" TargetType="Image">
+				<Setter Property="Source" Value="flower.png"/>
+				<Setter Property="Aspect" Value="AspectFit"/>
+				<Setter Property="Opacity" Value="0.05"/>
+				<Setter Property="AbsoluteLayout.LayoutBounds" Value="1,0,170,170"/>
+				<Setter Property="AbsoluteLayout.LayoutFlags" Value="PositionProportional"/>
+			</Style>
+
 		</ResourceDictionary>
 	</Application.Resources>
 </Application>

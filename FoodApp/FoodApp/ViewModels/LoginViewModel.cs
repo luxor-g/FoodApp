@@ -1,4 +1,4 @@
-﻿using FoodApp.Views;
+using FoodApp.Views;
 using Xamarin.Forms;
 
 namespace FoodApp.ViewModels
@@ -15,7 +15,7 @@ namespace FoodApp.ViewModels
 		private async void OnLoginClicked(object obj)
 		{
 			// Prefixing with `//` switches to a different navigation stack instead of pushing to the active one
-			await Shell.Current.GoToAsync($"//{nameof(AboutPage)}");
+			await Shell.Current.GoToAsync($"//{nameof(HomePage)}");
 		}
 	}
 }

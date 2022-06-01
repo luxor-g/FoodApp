@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:views="clr-namespace:FoodApp.Views"
+						 x:Class="FoodApp.Views.HomePage"
+             Shell.NavBarIsVisible="False">
+
+	<ContentPage.BackgroundColor>
+		<Color>#222</Color>
+	</ContentPage.BackgroundColor>
+
+	<ContentPage.Content>
+		<Grid>
+			<AbsoluteLayout>
+				<Image Style="{StaticResource flower}"/>
+			</AbsoluteLayout>
+
+			<StackLayout VerticalOptions="Fill" Margin="0,0,0,0" Spacing="0">
+				<StackLayout Margin="35,15,15,10" VerticalOptions="Start" Orientation="Horizontal">
+					<Label Text="Inicio" Style="{StaticResource titleLeft}"/>
+					<Button Text="" Style="{StaticResource microButton}" BackgroundColor="Transparent"/>
+				</StackLayout>
+
+				<ScrollView VerticalOptions="StartAndExpand">
+					<StackLayout Spacing="0">
+
+						<views:RecipeView/>
+						<views:RecipeView/>
+						<views:RecipeView/>
+						<views:RecipeView/>
+
+					</StackLayout>
+				</ScrollView>
+				
+			</StackLayout>
+		</Grid>
+	</ContentPage.Content>
+</ContentPage>
