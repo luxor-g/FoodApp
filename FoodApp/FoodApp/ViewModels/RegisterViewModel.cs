@@ -7,27 +7,36 @@ namespace FoodApp.ViewModels
 {
 	public class RegisterViewModel : BaseViewModel
 	{
+		private string name;
+		public string Name
+		{
+			get => name;
+			set => SetProperty(ref name, value);
+		}
+
 		public Command RegisterCommand { get; }
 
 		public RegisterViewModel()
 		{
-			RegisterCommand = new Command(OnSave, IsTextValid);
+			RegisterCommand = new Command(OnSave);//, IsTextValid);
 		}
 
-		private async void OnSave(string name, string email, string password)
+		private async void OnSave(object obj)
 		{
 			User newUser = new User()
 			{
 				Id = Guid.NewGuid().ToString(),
-				Name = name,
-				Email = email,
-				Password = password
+				Name = Name,
+				Email = "fdsfadfsa",
+				Password = "fdsafdsafdsafds"
 			};
 
-			await DataStore.AddItemAsync(newUser);
+			await UserDataStore.AddItemAsync(newUser);
 
 			// This will pop the current page off the navigation stack
-			await Shell.Current.GoToAsync("..");
+			await Shell.Current.GoToAsync($"//{nameof(HomePage)}");
 		}
+
+		//private async void OnSave(string name, string email, string password)
 	}
 }

@@ -17,9 +17,9 @@
 
 			<StackLayout VerticalOptions="Fill" Margin="0,0,0,0" Spacing="0">
 				<StackLayout Margin="0,15,15,10" VerticalOptions="Start" Orientation="Horizontal" Spacing="0">
-					<Button Clicked="OnGoBack" WidthRequest="35" Style="{StaticResource transparentButton}" Text="" FontFamily="Segoe" TextColor="{StaticResource white_color}" FontSize="25" BackgroundColor="Transparent"/>
+					<views:BackButtonView/>
 					<Label Text="Receta" Style="{StaticResource titleLeft}"/>
-					<Button Text="" Style="{StaticResource microButton}" BackgroundColor="Transparent"/>
+					<views:MicroButtonView/>
 				</StackLayout>
 
 				<ScrollView VerticalOptions="StartAndExpand">
@@ -36,9 +36,8 @@
 									<Label Text="" Style="{StaticResource icon}"/>
 									<Label Text="1 min" FontSize="14" x:Name="Time"/>
 								</StackLayout>
-
-
 							</StackLayout>
+
 							<StackLayout Orientation="Horizontal" HorizontalOptions="End" Margin="0,0,35,0">
 								<Label Text="" FontSize="20" VerticalOptions="Center" Style="{StaticResource icon}" TextColor="{StaticResource primary_color}" x:Name="HeartIcon"/>
 								<Label Text="0" FontSize="20" VerticalOptions="Center" TextColor="{StaticResource primary_color}" x:Name="HeartsCount"/>
@@ -46,12 +45,23 @@
 						</StackLayout>
 
 						<Label Text="Cras vulputate vel ipsum vitae tristique. Sed sit amet aliquet libero, efficitur semper metus. Morbi sit amet semper enim, ut ultricies dui." Margin="35,20,35,35"/>
-						<StackLayout Orientation="Horizontal" Margin="35,0,35,0">
-							<Label Text="Ingredientes" HorizontalOptions="StartAndExpand" TextColor="{StaticResource white_color}" FontSize="20" VerticalOptions="Center"/>
-							<Label Text="" Style="{StaticResource icon}" TextColor="{StaticResource primary_color}" VerticalOptions="Center" FontSize="20"/>
+						<StackLayout Margin="35,0,35,35">
+							<StackLayout Orientation="Horizontal" Margin="0">
+								<Label Text="Ingredientes" HorizontalOptions="StartAndExpand" TextColor="{StaticResource white_color}" FontSize="20" VerticalOptions="Center"/>
+								<Label Text="" Style="{StaticResource icon}" TextColor="{StaticResource primary_color}" VerticalOptions="Center" FontSize="20"/>
+							</StackLayout>
+
+							<Label Text="• Harina (250gr)"/>
+							<Label Text="• Lechuga (50gr)"/>
+							<Label Text="• Huevos (5)"/>
 						</StackLayout>
+
 						<Label Text="Pasos" TextColor="{StaticResource white_color}" FontSize="20" Margin="35,5,35,0"/>
 
+						<views:StepView/>
+						<views:StepView/>
+						<views:StepView/>
+						<views:StepView/>
 						<views:StepView/>
 
 					</StackLayout>

@@ -18,13 +18,29 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Xamarin.Forms" Version="5.0.0.2196" />
-		<PackageReference Include="Xamarin.Essentials" Version="1.7.0" />
+		<PackageReference Include="Microsoft.CognitiveServices.Speech" Version="1.22.0" />
+		<PackageReference Include="Xamarin.Forms" Version="5.0.0.2478" />
+		<PackageReference Include="Xamarin.Essentials" Version="1.7.3" />
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Update="Views\MicroButtonView.xaml.cs">
+	    <DependentUpon>MicroButtonView.xaml</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+		<EmbeddedResource Update="Views\AssistantPage.xaml">
+		  <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+		</EmbeddedResource>
+		<EmbeddedResource Update="Views\BackButtonView.xaml">
+		  <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+		</EmbeddedResource>
 		<EmbeddedResource Update="Views\HomePage.xaml">
 			<Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+		</EmbeddedResource>
+		<EmbeddedResource Update="Views\MicroButtonView.xaml">
+		  <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
 		</EmbeddedResource>
 		<EmbeddedResource Update="Views\PasswordView.xaml">
 			<Generator>MSBuild:UpdateDesignTimeXaml</Generator>

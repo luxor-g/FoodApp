@@ -1,4 +1,4 @@
-﻿using FoodApp.Models;
+using FoodApp.Models;
 using FoodApp.Services;
 using System;
 using System.Collections.Generic;
@@ -11,6 +11,7 @@ namespace FoodApp.ViewModels
 	public class BaseViewModel : INotifyPropertyChanged
 	{
 		public IDataStore<Item> DataStore => DependencyService.Get<IDataStore<Item>>();
+		public IDataStore<User> UserDataStore => DependencyService.Get<IDataStore<User>>();
 
 		bool isBusy = false;
 		public bool IsBusy

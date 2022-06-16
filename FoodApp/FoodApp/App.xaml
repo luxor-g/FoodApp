@@ -116,7 +116,7 @@
 			</Style>
 
 			<Style x:Key="flower" TargetType="Image">
-				<Setter Property="Source" Value="flower.png"/>
+				<Setter Property="Source" Value="background_flower.png"/>
 				<Setter Property="Aspect" Value="AspectFit"/>
 				<Setter Property="Opacity" Value="0.05"/>
 				<Setter Property="AbsoluteLayout.LayoutBounds" Value="1,0,170,170"/>

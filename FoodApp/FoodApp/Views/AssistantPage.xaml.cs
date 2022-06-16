@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,9 +10,9 @@ using Xamarin.Forms.Xaml;
 namespace FoodApp.Views
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class RecipePage : ContentPage
+	public partial class AssistantPage : ContentPage
 	{
-		public RecipePage()
+		public AssistantPage()
 		{
 			InitializeComponent();
 		}

@@ -11,6 +11,7 @@ namespace FoodApp
 			InitializeComponent();
 
 			DependencyService.Register<MockDataStore>();
+			DependencyService.Register<UserDataStore>();
 			MainPage = new AppShell();
 		}
 

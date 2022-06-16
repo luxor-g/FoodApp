@@ -13,6 +13,7 @@ namespace FoodApp
 
 
 			Routing.RegisterRoute(nameof(RecipePage), typeof(RecipePage));
+			Routing.RegisterRoute(nameof(AssistantPage), typeof(AssistantPage));
 		}
 
 	}

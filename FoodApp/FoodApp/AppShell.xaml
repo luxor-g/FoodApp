@@ -32,7 +32,7 @@
 
 	<TabBar>
 		<ShellContent Title="Inicio" Icon="icon_home.png" ContentTemplate="{DataTemplate local:HomePage}" Route="HomePage"/>
-		<ShellContent Title="Búsqueda" Icon="icon_search.png" ContentTemplate="{DataTemplate local:RecipePage}" Route="RecipePage"/>
+		<!-- <ShellContent Title="Búsqueda" Icon="icon_search.png" ContentTemplate="{DataTemplate local:RecipePage}" Route="RecipePage"/> -->
 		<ShellContent Title="Lista" Icon="icon_cart.png"   ContentTemplate="{DataTemplate local:ItemsPage}" Route="ItemsPage"/>
 		<ShellContent Title="Opciones" Icon="icon_gear.png" ContentTemplate="{DataTemplate local:SettingsPage}"/>
 	</TabBar>

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+using FoodApp.Models;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace FoodApp.Services
