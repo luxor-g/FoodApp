@@ -24,7 +24,7 @@
 				</StackLayout>
 
 					<StackLayout VerticalOptions="End" Margin="0,0,0,70">
-					<Label Margin="0,0,0,35" Text="Recetas fáciles paso a paso controladas mediante voz." HorizontalTextAlignment="Center" VerticalOptions="Center" HorizontalOptions="Center"/>
+					<Label Margin="0,0,0,35" Text="Recetas fáciles paso a paso que puedes controlar mediante tu voz." HorizontalTextAlignment="Center" VerticalOptions="Center" HorizontalOptions="Center"/>
 					<Button Margin="0,0,0,10" Text="Iniciar Sesión" Clicked="GoToLogin" Style="{StaticResource roundButton}"/>
 					<Button Margin="0,0,0,0" Text="Registrarse" Clicked="GoToRegister" Style="{StaticResource roundButton}" TextColor="{StaticResource primary_color}" BackgroundColor="{StaticResource background_color}" BorderColor="{StaticResource primary_color}" BorderWidth="2"/>
 				</StackLayout>

@@ -1,13 +1,20 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:views="clr-namespace:FoodApp.Views"
+						 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+						 xmlns:views="clr-namespace:FoodApp.Views"
+						 xmlns:local="clr-namespace:FoodApp.ViewModels"
 						 x:Class="FoodApp.Views.RecipePage"
-             Shell.NavBarIsVisible="False">
+						 Shell.NavBarIsVisible="False">
 
 	<ContentPage.BackgroundColor>
 		<Color>#222</Color>
 	</ContentPage.BackgroundColor>
+
+<!--
+	<ContentPage.BindingContext>
+		<local:RecipeViewModel/>
+	</ContentPage.BindingContext>
+-->
 
 	<ContentPage.Content>
 		<Grid>
@@ -22,51 +29,47 @@
 					<views:MicroButtonView/>
 				</StackLayout>
 
-				<ScrollView VerticalOptions="StartAndExpand">
-					<StackLayout Spacing="0" Margin="0,0,0,0" VerticalOptions="Fill">
-
-						<Image Aspect="AspectFit" Source="TEMP.png"/>
-
-						<StackLayout Orientation="Horizontal" Spacing="0">
-							<StackLayout Spacing="0" HorizontalOptions="StartAndExpand">
-								<Label Text="Ensalada de tomate" TextColor="{StaticResource white_color}" FontSize="20" Margin="35,5,35,0"/>
-								<StackLayout Orientation="Horizontal" Margin="35,0,0,0">
-									<Label Text="Tipo" FontSize="14" x:Name="Type"/>
-									<Label Text="·" FontSize="14"/>
-									<Label Text="" Style="{StaticResource icon}"/>
-									<Label Text="1 min" FontSize="14" x:Name="Time"/>
+				<CollectionView ItemsSource="{Binding Steps}">
+					<CollectionView.Header>
+						<StackLayout Spacing="0" Margin="0">
+							<Image Aspect="AspectFit" Source="{Binding Receta.imagen}"/>
+							<StackLayout Orientation="Horizontal" Spacing="0">
+								<StackLayout Spacing="0" HorizontalOptions="StartAndExpand">
+									<Label Text="{Binding Receta.nombre}" TextColor="{StaticResource white_color}" FontSize="20" Margin="35,5,35,0"/>
+									<StackLayout Orientation="Horizontal" Margin="35,0,0,0" Spacing="0">
+										<Label Text="{Binding Receta.categoria}" FontSize="14"/>
+										<Label Text="  ·   " Style="{StaticResource icon}"/>
+										<Label Text="{Binding Receta.tiempo}" FontSize="14"/>
+									</StackLayout>
+								</StackLayout>
+								<StackLayout Orientation="Horizontal" HorizontalOptions="End" Margin="0,0,35,0">
+									<Image Source="{Binding Corazon, Mode=TwoWay}" HeightRequest="20" BackgroundColor="Transparent"/>
+									<Label Text="{Binding Corazones}" FontSize="20" VerticalOptions="Center" TextColor="{StaticResource primary_color}"/>
+									<StackLayout.GestureRecognizers>
+										<TapGestureRecognizer Command="{Binding OnHeartClickedCommand, Source={RelativeSource AncestorType={x:Type local:RecipeViewModel}}}"/>
+									</StackLayout.GestureRecognizers>
 								</StackLayout>
 							</StackLayout>
-
-							<StackLayout Orientation="Horizontal" HorizontalOptions="End" Margin="0,0,35,0">
-								<Label Text="" FontSize="20" VerticalOptions="Center" Style="{StaticResource icon}" TextColor="{StaticResource primary_color}" x:Name="HeartIcon"/>
-								<Label Text="0" FontSize="20" VerticalOptions="Center" TextColor="{StaticResource primary_color}" x:Name="HeartsCount"/>
+							<Label Text="{Binding Receta.descripcion}" Margin="35,20,35,35"/>
+							<StackLayout Margin="35,0,35,35">
+								<StackLayout Orientation="Horizontal" Margin="0">
+									<Label Text="Ingredientes" HorizontalOptions="StartAndExpand" TextColor="{StaticResource white_color}" FontSize="20" VerticalOptions="Center"/>
+									<Label Text="" Style="{StaticResource icon}" TextColor="{StaticResource primary_color}" VerticalOptions="Center" FontSize="20"/>
+								</StackLayout>
+								<Label Text="{Binding Receta.ingredientes}"/>
 							</StackLayout>
+							<Label Text="Pasos" TextColor="{StaticResource white_color}" FontSize="20" Margin="35,5,35,0"/>
 						</StackLayout>
-
-						<Label Text="Cras vulputate vel ipsum vitae tristique. Sed sit amet aliquet libero, efficitur semper metus. Morbi sit amet semper enim, ut ultricies dui." Margin="35,20,35,35"/>
-						<StackLayout Margin="35,0,35,35">
-							<StackLayout Orientation="Horizontal" Margin="0">
-								<Label Text="Ingredientes" HorizontalOptions="StartAndExpand" TextColor="{StaticResource white_color}" FontSize="20" VerticalOptions="Center"/>
-								<Label Text="" Style="{StaticResource icon}" TextColor="{StaticResource primary_color}" VerticalOptions="Center" FontSize="20"/>
-							</StackLayout>
-
-							<Label Text="• Harina (250gr)"/>
-							<Label Text="• Lechuga (50gr)"/>
-							<Label Text="• Huevos (5)"/>
-						</StackLayout>
-
-						<Label Text="Pasos" TextColor="{StaticResource white_color}" FontSize="20" Margin="35,5,35,0"/>
-
-						<views:StepView/>
-						<views:StepView/>
-						<views:StepView/>
-						<views:StepView/>
-						<views:StepView/>
-
-					</StackLayout>
-				
-				</ScrollView>
+					</CollectionView.Header>
+					<CollectionView.ItemTemplate>
+						<DataTemplate>
+							<Grid>
+								<Label Text="{Binding Number}" Margin="35,0,0,0" TextColor="{StaticResource primary_color}" FontSize="40" VerticalOptions="Start" HorizontalOptions="Start"/>
+								<Label Text="{Binding Text}" Margin="75,15,35,15" HorizontalOptions="End"/>
+							</Grid>
+						</DataTemplate>
+					</CollectionView.ItemTemplate>
+				</CollectionView>
 
 			</StackLayout>
 		</Grid>

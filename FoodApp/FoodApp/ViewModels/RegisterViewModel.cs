@@ -1,42 +1,50 @@
 using FoodApp.Models;
-using FoodApp.Views;
-using System;
 using Xamarin.Forms;
 
 namespace FoodApp.ViewModels
 {
 	public class RegisterViewModel : BaseViewModel
 	{
-		private string name;
-		public string Name
+		private string nombre;
+		private string email;
+		private string clave;
+		public string Nombre
 		{
-			get => name;
-			set => SetProperty(ref name, value);
+			get => nombre;
+			set => SetProperty(ref nombre, value);
+		}
+		public string Email
+		{
+			get => email;
+			set => SetProperty(ref email, value);
+		}
+		public string Clave
+		{
+			get => clave;
+			set => SetProperty(ref clave, value);
 		}
 
 		public Command RegisterCommand { get; }
 
 		public RegisterViewModel()
 		{
-			RegisterCommand = new Command(OnSave);//, IsTextValid);
+			RegisterCommand = new Command(OnSave);
 		}
 
-		private async void OnSave(object obj)
+		private async void OnSave()
 		{
-			User newUser = new User()
+			Usuario newUsuario = new Usuario()
 			{
-				Id = Guid.NewGuid().ToString(),
-				Name = Name,
-				Email = "fdsfadfsa",
-				Password = "fdsafdsafdsafds"
+				nombre = Nombre,
+				email = Email,
+				clave = Clave
 			};
 
-			await UserDataStore.AddItemAsync(newUser);
-
-			// This will pop the current page off the navigation stack
-			await Shell.Current.GoToAsync($"//{nameof(HomePage)}");
+			if (await App.restService.CreateUsuario(newUsuario))
+				await LoginViewModel.Login(newUsuario);
+			else
+				await Application.Current.MainPage.DisplayAlert("Alerta", "El email introducido ya se encuentra en uso.", "Aceptar");
 		}
 
-		//private async void OnSave(string name, string email, string password)
 	}
 }

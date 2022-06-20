@@ -1,17 +1,36 @@
+using FoodApp.Models;
 using FoodApp.Services;
+using FoodApp.ViewModels;
+using FoodApp.Views;
+using System;
+using System.Collections.Generic;
+using System.IO;
 using Xamarin.Forms;
 
 namespace FoodApp
 {
 	public partial class App : Application
 	{
+		public static RestService restService;
+		public static SpeechService speechService;
+
+		public static int loggedUser;
+		public static string Path;
+
+
+
+		public static List<Receta> Recetas;
+
+
 
 		public App()
 		{
 			InitializeComponent();
 
-			DependencyService.Register<MockDataStore>();
-			DependencyService.Register<UserDataStore>();
+			restService = new RestService();
+			speechService = new SpeechService();
+			Path = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
+
 			MainPage = new AppShell();
 		}
 

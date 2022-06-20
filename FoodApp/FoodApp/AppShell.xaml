@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Shell xmlns="http://xamarin.com/schemas/2014/forms"
-       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-       xmlns:local="clr-namespace:FoodApp.Views"
-       Title="FoodApp"
-       x:Class="FoodApp.AppShell">
+			 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+			 xmlns:local="clr-namespace:FoodApp.Views"
+			 Title="FoodApp"
+			 x:Class="FoodApp.AppShell">
 
 	<!--
 		The overall app visual hierarchy is defined here, along with navigation.
@@ -13,28 +13,27 @@
 	<Shell.Resources>
 		<ResourceDictionary>
 			<Style x:Key="BaseStyle" TargetType="Element">
-				<Setter Property="Shell.BackgroundColor" Value="{StaticResource background_color}" />
-				<Setter Property="Shell.DisabledColor" Value="#B4FFFFFF" />
-				<Setter Property="Shell.ForegroundColor" Value="{StaticResource white_color}" />
-				<Setter Property="Shell.TabBarBackgroundColor" Value="#000" />
+				<Setter Property="Shell.BackgroundColor" Value="{StaticResource background_color}"/>
+				<Setter Property="Shell.DisabledColor" Value="#B4FFFFFF"/>
+				<Setter Property="Shell.ForegroundColor" Value="{StaticResource white_color}"/>
+				<Setter Property="Shell.TabBarBackgroundColor" Value="#000"/>
 				<Setter Property="Shell.TabBarForegroundColor" Value="{StaticResource primary_color}"/>
 				<Setter Property="Shell.TabBarTitleColor" Value="{StaticResource primary_color}"/>
 				<Setter Property="Shell.TabBarUnselectedColor" Value="{StaticResource white_color}"/>
 				<Setter Property="Shell.TitleColor" Value="{StaticResource white_color}" />
-				<Setter Property="Shell.UnselectedColor" Value="#95FFFFFF" />
+				<Setter Property="Shell.UnselectedColor" Value="#95FFFFFF"/>
 			</Style>
-			<Style TargetType="TabBar" BasedOn="{StaticResource BaseStyle}" />
-			<Style TargetType="FlyoutItem" BasedOn="{StaticResource BaseStyle}" />
+			<Style TargetType="TabBar" BasedOn="{StaticResource BaseStyle}"/>
+			<Style TargetType="FlyoutItem" BasedOn="{StaticResource BaseStyle}"/>
 		</ResourceDictionary>
 	</Shell.Resources>
 
-	<local:StartUpPage/>
 
+	<local:StartUpPage/>
 	<TabBar>
 		<ShellContent Title="Inicio" Icon="icon_home.png" ContentTemplate="{DataTemplate local:HomePage}" Route="HomePage"/>
-		<!-- <ShellContent Title="Búsqueda" Icon="icon_search.png" ContentTemplate="{DataTemplate local:RecipePage}" Route="RecipePage"/> -->
-		<ShellContent Title="Lista" Icon="icon_cart.png"   ContentTemplate="{DataTemplate local:ItemsPage}" Route="ItemsPage"/>
-		<ShellContent Title="Opciones" Icon="icon_gear.png" ContentTemplate="{DataTemplate local:SettingsPage}"/>
+		<ShellContent Title="Búsqueda" Icon="icon_search.png" ContentTemplate="{DataTemplate local:SearchPage}" Route="SearchPage"/>
+		<ShellContent Title="Opciones" Icon="icon_gear.png" ContentTemplate="{DataTemplate local:SettingsPage}" Route="SettingsPage"/>
 	</TabBar>
 
 	<!--

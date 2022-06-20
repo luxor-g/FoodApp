@@ -9,44 +9,50 @@ namespace FoodApp.Services
 {
 	public class SpeechService
 	{
-		static string SubscriptionKey = "1ef2318152104fecbc3e4f1338765260";
-		static string ServiceRegion = "westeurope";
+		private const string SubscriptionKey = "1ef2318152104fecbc3e4f1338765260";
+		private const string ServiceRegion = "westeurope";
 
-		static void OutputSpeechRecognitionResult(SpeechRecognitionResult speechRecognitionResult)
+		public const string MaleVoice = "es-ES-AlvaroNeural";
+		public const string FemaleVoice = "es-ES-ElviraNeural";
+
+		public string Voice;
+
+
+
+
+		public async Task TextToSpeech(string text)
 		{
-			switch (speechRecognitionResult.Reason)
-			{
-				case ResultReason.RecognizedSpeech:
-					Console.WriteLine($"RECOGNIZED: Text={speechRecognitionResult.Text}");
-					break;
-				case ResultReason.NoMatch:
-					Console.WriteLine($"NOMATCH: Speech could not be recognized.");
-					break;
-				case ResultReason.Canceled:
-					var cancellation = CancellationDetails.FromResult(speechRecognitionResult);
-					Console.WriteLine($"CANCELED: Reason={cancellation.Reason}");
+			var speechConfig = SpeechConfig.FromSubscription(SubscriptionKey, ServiceRegion);
+			speechConfig.SpeechSynthesisVoiceName = Voice;
 
-					if (cancellation.Reason == CancellationReason.Error)
-					{
-						Console.WriteLine($"CANCELED: ErrorCode={cancellation.ErrorCode}");
-						Console.WriteLine($"CANCELED: ErrorDetails={cancellation.ErrorDetails}");
-						Console.WriteLine($"CANCELED: Did you set the speech resource key and region values?");
-					}
-					break;
+			using (var speechSynthesizer = new SpeechSynthesizer(speechConfig))
+			{
+				var speechSynthesisResult = await speechSynthesizer.SpeakTextAsync(text);
 			}
 		}
 
-		async static Task Main(string[] args)
+		public async Task<SpeechRecognitionResult> SpeechToText()
 		{
 			var speechConfig = SpeechConfig.FromSubscription(SubscriptionKey, ServiceRegion);
 			speechConfig.SpeechRecognitionLanguage = "es-ES";
 
-			//using var audioConfig = AudioConfig.FromDefaultMicrophoneInput();
-			//using var speechRecognizer = new SpeechRecognizer(speechConfig, audioConfig);
+			var audioConfig = AudioConfig.FromDefaultMicrophoneInput();
+			SpeechRecognizer speechRecognizer = new SpeechRecognizer(speechConfig, audioConfig);
 
-			Console.WriteLine("Speak into your microphone.");
-			//var speechRecognitionResult = await speechRecognizer.RecognizeOnceAsync();
+			return await speechRecognizer.RecognizeOnceAsync();
+
+			//speechRecognizer.Recognized += Interpreter;
+
+			//await TextToSpeech(speechRecognitionResult.Text);
 			//OutputSpeechRecognitionResult(speechRecognitionResult);
+
+		}
+
+		private static void Interpreter(object sender, RecognitionEventArgs e)
+		{
+			
+
+			throw new NotImplementedException();
 		}
 	}
 }

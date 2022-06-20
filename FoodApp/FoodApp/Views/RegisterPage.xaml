@@ -21,12 +21,12 @@
 				<StackLayout VerticalOptions="StartAndExpand">
 					<Label Margin="0,70,0,0" Text="Registrarse" Style="{StaticResource titleCenter}"/>
 					<Label Margin="0,0,0,35" Text="Introduzca sus datos para registrarse" HorizontalOptions="Center"/>
-					
-					<Entry Text="{Binding Name}" Margin="0,0,0,5" x:Name="NameEntry" Placeholder="Nombre" Keyboard="Text" ReturnType="Next" IsSpellCheckEnabled="False" IsTextPredictionEnabled="False" TextChanged="OnTextChanged"/>
-					<Entry Margin="0,0,0,5" x:Name="EmailEntry" Placeholder="Correo Electrónico" Keyboard="Email" ReturnType="Next" IsSpellCheckEnabled="False" IsTextPredictionEnabled="False" TextChanged="OnTextChanged"/>
+
+					<Entry Text="{Binding Nombre}" Margin="0,0,0,5" x:Name="NameEntry" Placeholder="Nombre" Keyboard="Text" ReturnType="Next" IsSpellCheckEnabled="False" IsTextPredictionEnabled="False" TextChanged="OnTextChanged" MaxLength="256"/>
+					<Entry Text="{Binding Email}" Margin="0,0,0,5" x:Name="EmailEntry" Placeholder="Correo Electrónico" Keyboard="Email" ReturnType="Next" IsSpellCheckEnabled="False" IsTextPredictionEnabled="False" TextChanged="OnTextChanged" MaxLength="254"/>
 					<views:PasswordView Margin="0,0,0,5" x:Name="PasswordView"/>
 					<views:PasswordView Margin="0,0,0,35" x:Name="RepeatPasswordView"/>
-					<Button Margin="0,0,0,0" Text="Registrarse" IsEnabled="False" x:Name="RegisterButton" Command="{Binding RegisterCommand}"/>
+					<Button Command="{Binding RegisterCommand}" Margin="0,0,0,0" Text="Registrarse" x:Name="RegisterButton"/>
 				</StackLayout>
 
 				<StackLayout VerticalOptions="End" HorizontalOptions="Center" Orientation="Horizontal" Margin="0,0,0,70" Spacing="0">

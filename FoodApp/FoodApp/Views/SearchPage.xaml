@@ -3,7 +3,7 @@
 						 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
 						 xmlns:views="clr-namespace:FoodApp.Views"
 						 xmlns:local="clr-namespace:FoodApp.ViewModels"
-						 x:Class="FoodApp.Views.HomePage"
+						 x:Class="FoodApp.Views.SearchPage"
 						 Shell.NavBarIsVisible="False">
 
 	<ContentPage.BackgroundColor>
@@ -11,9 +11,9 @@
 	</ContentPage.BackgroundColor>
 
 	<ContentPage.BindingContext>
-		<local:HomeViewModel/>
+		<local:SearchViewModel/>
 	</ContentPage.BindingContext>
-
+	
 	<ContentPage.Content>
 		<Grid>
 			<AbsoluteLayout>
@@ -22,16 +22,17 @@
 
 			<StackLayout VerticalOptions="Fill" Margin="0,0,0,0" Spacing="0">
 				<StackLayout Margin="35,15,15,10" VerticalOptions="Start" Orientation="Horizontal">
-					<Label Text="Inicio" Style="{StaticResource titleLeft}"/>
+					<Label Text="Búsqueda" Style="{StaticResource titleLeft}"/>
 					<views:MicroButtonView/>
 				</StackLayout>
 
+				<SearchBar x:Name="searchBar" TextColor="{StaticResource white_color}" BackgroundColor="#555" PlaceholderColor="#888" Placeholder="Buscar..."/>
 
 				<CollectionView x:Name="collectionView">
 					<CollectionView.EmptyView>
 						<AbsoluteLayout>
-							<Label Text="" FontSize="150" FontFamily="Segoe" AbsoluteLayout.LayoutBounds="0.5,0.4" AbsoluteLayout.LayoutFlags="PositionProportional"/>
-							<Label Text="No tienes ninguna receta favorita, dirígete a la pestaña de búsqueda." HorizontalTextAlignment="Center" Padding="35,0,35,5" FontSize="20" FontFamily="Segoe" AbsoluteLayout.LayoutBounds="0.5,0.6" AbsoluteLayout.LayoutFlags="PositionProportional"/>
+							<Label Text="" FontSize="150" FontFamily="Segoe" AbsoluteLayout.LayoutBounds="0.5,0.4" AbsoluteLayout.LayoutFlags="PositionProportional"/>
+							<Label Text="No se encontró ninguna receta que coincida con el filtro." HorizontalTextAlignment="Center" Padding="35,0,35,5" FontSize="20" FontFamily="Segoe" AbsoluteLayout.LayoutBounds="0.5,0.6" AbsoluteLayout.LayoutFlags="PositionProportional"/>
 						</AbsoluteLayout>
 					</CollectionView.EmptyView>
 					<CollectionView.ItemTemplate>
@@ -52,7 +53,7 @@
 								</StackLayout>
 								<Frame.GestureRecognizers>
 									<TapGestureRecognizer
-										Command="{Binding ToRecipePage, Source={RelativeSource AncestorType={x:Type local:HomeViewModel}}}"
+										Command="{Binding ToRecipePage, Source={RelativeSource AncestorType={x:Type local:SearchViewModel}}}"
 										CommandParameter="{Binding .}"/>
 								</Frame.GestureRecognizers>
 							</Frame>

@@ -2,7 +2,8 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
 						 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
 						 xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-						 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:views="clr-namespace:FoodApp.Views"
+						 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+						 xmlns:views="clr-namespace:FoodApp.Views"
 						 mc:Ignorable="d"
 						 x:Class="FoodApp.Views.LoginPage"
 						 Shell.NavBarIsVisible="False">
@@ -22,9 +23,9 @@
 					<Label Margin="0,70,0,0" Text="Iniciar Sesión" Style="{StaticResource titleCenter}"/>
 					<Label Margin="0,0,0,35" Text="Introduzca sus datos para iniciar sesión" HorizontalOptions="Center"/>
 
-					<Entry Margin="0,0,0,5" Placeholder="Correo Electrónico" Keyboard="Email" ReturnType="Next" IsSpellCheckEnabled="False" IsTextPredictionEnabled="False" TextChanged="OnTextChanged" x:Name="EmailEntry" MaxLength="254"/>
+					<Entry Margin="0,0,0,5" Text="{Binding Email}" Placeholder="Correo Electrónico" Keyboard="Email" ReturnType="Next" IsSpellCheckEnabled="False" IsTextPredictionEnabled="False" TextChanged="OnTextChanged" x:Name="EmailEntry" MaxLength="254"/>
 					<views:PasswordView Margin="0,0,0,35" x:Name="PasswordView"/>
-					<Button Margin="0,0,0,20" Text="Iniciar Sesión" x:Name="LoginButton" IsEnabled="False"/>
+					<Button Margin="0,0,0,20" Text="Iniciar Sesión" x:Name="LoginButton" IsEnabled="False" Command="{Binding LoginCommand}"/>
 					<Button Text="¿Ha olvidado la contraseña?" HorizontalOptions="Center" Style="{StaticResource transparentButton}" Clicked="GoToNewPassword" BackgroundColor="Transparent"/>
 				</StackLayout>
 

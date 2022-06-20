@@ -9,14 +9,20 @@ namespace FoodApp.Views
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class RegisterPage : ContentPage
 	{
+		RegisterViewModel rvm;
 		public RegisterPage()
 		{
 			InitializeComponent();
-			this.BindingContext = new RegisterViewModel();
+			rvm = new RegisterViewModel();
+			this.BindingContext = rvm;
+
+			PasswordView.Entry.TextChanged += OnTextChanged;
+			PasswordView.Entry.ReturnType = ReturnType.Next;
 
 			RepeatPasswordView.Entry.Placeholder = "Repetir Contraseña";
-			PasswordView.Entry.TextChanged += OnTextChanged;
 			RepeatPasswordView.Entry.TextChanged += OnTextChanged;
+
+			RegisterButton.IsEnabled = false;
 		}
 
 		async void GoToLogin(object sender, EventArgs args)
@@ -25,7 +31,7 @@ namespace FoodApp.Views
 			Navigation.RemovePage(this);
 		}
 
-		public bool IsTextValid()
+		bool IsTextValid()
 		{
 			if (string.IsNullOrEmpty(NameEntry.Text) || string.IsNullOrEmpty(EmailEntry.Text)
 				|| string.IsNullOrEmpty(PasswordView.Entry.Text) || string.IsNullOrEmpty(RepeatPasswordView.Entry.Text))
@@ -40,8 +46,10 @@ namespace FoodApp.Views
 			}
 		}
 
-		void OnTextChanged(object sender, EventArgs args) => RegisterButton.IsEnabled = IsTextValid();
-
-
+		void OnTextChanged(object sender, EventArgs args)
+		{
+			RegisterButton.IsEnabled = IsTextValid();
+			rvm.Clave = PasswordView.Entry.Text;
+		}
 	}
 }

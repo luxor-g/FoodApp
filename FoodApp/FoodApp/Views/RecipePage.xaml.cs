@@ -1,9 +1,4 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+using FoodApp.ViewModels;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -14,7 +9,10 @@ namespace FoodApp.Views
 	{
 		public RecipePage()
 		{
+			this.BindingContext = new RecipeViewModel();
 			InitializeComponent();
 		}
+
+
 	}
 }

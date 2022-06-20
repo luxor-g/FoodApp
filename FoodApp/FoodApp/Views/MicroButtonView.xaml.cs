@@ -19,10 +19,15 @@ namespace FoodApp.Views
 
 		private async void OnClicked(object sender, EventArgs e)
 		{
+			Button.IsEnabled = false;
 			Button.TextColor = Color.Accent;
+
 			await Shell.Current.GoToAsync(nameof(AssistantPage));
 			await Task.Delay(800);
+
+			Button.IsEnabled = true;
 			Button.TextColor = Color.White;
+			Button.BackgroundColor = Color.Transparent;
 		}
 	}
 }

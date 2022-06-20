@@ -1,3 +1,4 @@
+using FoodApp.Services;
 using FoodApp.ViewModels;
 using System;
 using System.Text.RegularExpressions;
@@ -9,31 +10,43 @@ namespace FoodApp.Views
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class LoginPage : ContentPage
 	{
+		LoginViewModel lvm;
 		public LoginPage()
 		{
 			InitializeComponent();
-			this.BindingContext = new LoginViewModel();
+			lvm = new LoginViewModel();
+			this.BindingContext = lvm;
 			PasswordView.Entry.TextChanged += OnTextChanged;
+			LoginButton.IsEnabled = false;
 		}
 
-		async void GoToNewPassword(object sender, EventArgs args) => await Shell.Current.GoToAsync($"//{nameof(HomePage)}");
+		void GoToNewPassword(object sender, EventArgs args)
+		{
+			//await Shell.Current.GoToAsync($"//{nameof(HomePage)}");
+		}
+
 		async void GoToRegister(object sender, EventArgs args)
 		{
 			await Navigation.PushAsync(new RegisterPage());
 			Navigation.RemovePage(this);
 		}
-
-		void OnTextChanged(object sender, EventArgs args)
+		bool IsTextValid()
 		{
 			if (string.IsNullOrEmpty(EmailEntry.Text) || string.IsNullOrEmpty(PasswordView.Entry.Text))
 			{
-				LoginButton.IsEnabled = false;
+				return false;
 			}
 			else
 			{
-				LoginButton.IsEnabled = new Regex("^\\S+@\\S+\\.\\S+$").IsMatch(EmailEntry.Text)
+				return new Regex("^\\S+@\\S+\\.\\S+$").IsMatch(EmailEntry.Text)
 					&& new Regex("^.*(?=.{8,})(?=.*[a-zA-Z])(?=.*[0-9]).*$").IsMatch(PasswordView.Entry.Text);
 			}
+		}
+
+		void OnTextChanged(object sender, EventArgs args)
+		{
+			LoginButton.IsEnabled = IsTextValid();
+			lvm.Clave = PasswordView.Entry.Text;
 		}
 	}
 }

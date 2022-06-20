@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+						 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+						 xmlns:views="clr-namespace:FoodApp.Views"
 						 x:Class="FoodApp.Views.SettingsPage"
 						 Shell.NavBarIsVisible="False">
 
@@ -17,18 +18,19 @@
 			<StackLayout VerticalOptions="Fill" Margin="0,0,0,0" Spacing="0">
 				<StackLayout Margin="35,15,15,10" VerticalOptions="Start" Orientation="Horizontal">
 					<Label Text="Opciones" Style="{StaticResource titleLeft}" VerticalOptions="Center"/>
-					<!-- <views:MicroButtonView/> -->
+					<views:MicroButtonView/>
 				</StackLayout>
 				
 				<Button Text=" Usuario" Style="{StaticResource settingButton}" IsEnabled="False" BackgroundColor="#333"/>
-				<Button Text=" Cambiar Nombre" Style="{StaticResource settingButton}" BackgroundColor="{StaticResource background_color}"/>
-				<Button Text=" Cambiar Email" Style="{StaticResource settingButton}" BackgroundColor="{StaticResource background_color}"/>
-				<Button Text=" Cambiar Contraseña" Style="{StaticResource settingButton}" BackgroundColor="{StaticResource background_color}"/>
-				<Button Text=" Cerrar Sesión" Style="{StaticResource settingButton}" BackgroundColor="{StaticResource background_color}"/>
+				<Button Text=" Cambiar Nombre" Clicked="ChangeName" Style="{StaticResource settingButton}" BackgroundColor="{StaticResource background_color}"/>
+				<Button Text=" Cambiar Email" Clicked="ChangeEmail" Style="{StaticResource settingButton}" BackgroundColor="{StaticResource background_color}"/>
+				<Button Text=" Cambiar Contraseña" Clicked="ChangePassword" Style="{StaticResource settingButton}" BackgroundColor="{StaticResource background_color}"/>
+				<Button Text=" Cerrar Sesión" Clicked="LogoutClicked" Style="{StaticResource settingButton}" BackgroundColor="{StaticResource background_color}"/>
+				<Button Text=" Borrar Cuenta" Clicked="DeleteAccount" Style="{StaticResource settingButton}" BackgroundColor="{StaticResource background_color}"/>
 
 				<Button Text=" Asistente" Style="{StaticResource settingButton}" IsEnabled="False" BackgroundColor="#333"/>
+				<Button Text=" Género" Clicked="ChangeVoice" Style="{StaticResource settingButton}" BackgroundColor="{StaticResource background_color}"/>
 				<Button Text=" Subtítulos" Style="{StaticResource settingButton}" BackgroundColor="{StaticResource background_color}"/>
-				<Button Text=" fdsfdsfds" Style="{StaticResource settingButton}" BackgroundColor="{StaticResource background_color}"/>
 				<Button Text=" Velocidad" Style="{StaticResource settingButton}" BackgroundColor="{StaticResource background_color}"/>
 
 			</StackLayout>
