@@ -1,9 +1,5 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
-
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -23,7 +19,7 @@ namespace FoodApp.Views
 			Button.TextColor = Color.Accent;
 
 			await Shell.Current.GoToAsync(nameof(AssistantPage));
-			await Task.Delay(800);
+			await Task.Delay(500);
 
 			Button.IsEnabled = true;
 			Button.TextColor = Color.White;

@@ -1,4 +1,3 @@
-using FoodApp.Services;
 using FoodApp.ViewModels;
 using System;
 using System.Text.RegularExpressions;
@@ -10,7 +9,7 @@ namespace FoodApp.Views
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class LoginPage : ContentPage
 	{
-		LoginViewModel lvm;
+		readonly LoginViewModel lvm;
 		public LoginPage()
 		{
 			InitializeComponent();
@@ -30,6 +29,7 @@ namespace FoodApp.Views
 			await Navigation.PushAsync(new RegisterPage());
 			Navigation.RemovePage(this);
 		}
+
 		bool IsTextValid()
 		{
 			if (string.IsNullOrEmpty(EmailEntry.Text) || string.IsNullOrEmpty(PasswordView.Entry.Text))
@@ -38,8 +38,8 @@ namespace FoodApp.Views
 			}
 			else
 			{
-				return new Regex("^\\S+@\\S+\\.\\S+$").IsMatch(EmailEntry.Text)
-					&& new Regex("^.*(?=.{8,})(?=.*[a-zA-Z])(?=.*[0-9]).*$").IsMatch(PasswordView.Entry.Text);
+				return new Regex("^\\S+@\\S+\\.\\S+$", RegexOptions.Compiled).IsMatch(EmailEntry.Text)
+					&& new Regex("^.*(?=.{8,})(?=.*[a-zA-Z])(?=.*[0-9]).*$", RegexOptions.Compiled).IsMatch(PasswordView.Entry.Text);
 			}
 		}
 

@@ -1,7 +1,4 @@
 using FoodApp.Models;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using Xamarin.Forms;
 
 namespace FoodApp.ViewModels
@@ -9,8 +6,6 @@ namespace FoodApp.ViewModels
 	internal class SearchViewModel : BaseViewModel
 	{
 		public Command ToRecipePage { get; set; }
-
-
 
 		public SearchViewModel()
 		{
@@ -24,7 +19,5 @@ namespace FoodApp.ViewModels
 
 			await Shell.Current.GoToAsync(state: $"RecipePage?id={receta.id}");
 		}
-
-
 	}
 }

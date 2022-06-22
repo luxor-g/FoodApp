@@ -26,7 +26,6 @@
 					<views:MicroButtonView/>
 				</StackLayout>
 
-
 				<CollectionView x:Name="collectionView">
 					<CollectionView.EmptyView>
 						<AbsoluteLayout>

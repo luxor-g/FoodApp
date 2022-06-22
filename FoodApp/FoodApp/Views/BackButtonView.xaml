@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="FoodApp.Views.BackButtonView">
-  <ContentView.Content>
+						 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+						 x:Class="FoodApp.Views.BackButtonView">
+	
+	<ContentView.Content>
 		<Button x:Name="Button" Clicked="OnGoBack" WidthRequest="35" Style="{StaticResource transparentButton}" Text=""
 						FontFamily="Segoe" TextColor="{StaticResource white_color}" FontSize="25" BackgroundColor="Transparent"/>
-  </ContentView.Content>
+	</ContentView.Content>
 </ContentView>

@@ -15,7 +15,6 @@ namespace FoodApp.Views
 			InitializeComponent();
 		}
 
-
 		protected override void OnAppearing()
 		{
 			base.OnAppearing();
@@ -29,7 +28,7 @@ namespace FoodApp.Views
 			collectionView.ItemsSource = null;
 		}
 
-		List<Receta> GetFavoritos()
+		public static List<Receta> GetFavoritos()
 		{
 			var favoritos = new List<Receta>();
 
@@ -39,6 +38,5 @@ namespace FoodApp.Views
 
 			return favoritos;
 		}
-
 	}
 }

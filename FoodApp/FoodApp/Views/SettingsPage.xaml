@@ -20,22 +20,19 @@
 					<Label Text="Opciones" Style="{StaticResource titleLeft}" VerticalOptions="Center"/>
 					<views:MicroButtonView/>
 				</StackLayout>
-				
-				<Button Text=" Usuario" Style="{StaticResource settingButton}" IsEnabled="False" BackgroundColor="#333"/>
+
+				<Button Text=" Usuario" Style="{StaticResource settingButton}" IsEnabled="False" BackgroundColor="#333" HeightRequest="60" FontSize="20"/>
 				<Button Text=" Cambiar Nombre" Clicked="ChangeName" Style="{StaticResource settingButton}" BackgroundColor="{StaticResource background_color}"/>
 				<Button Text=" Cambiar Email" Clicked="ChangeEmail" Style="{StaticResource settingButton}" BackgroundColor="{StaticResource background_color}"/>
 				<Button Text=" Cambiar Contraseña" Clicked="ChangePassword" Style="{StaticResource settingButton}" BackgroundColor="{StaticResource background_color}"/>
 				<Button Text=" Cerrar Sesión" Clicked="LogoutClicked" Style="{StaticResource settingButton}" BackgroundColor="{StaticResource background_color}"/>
-				<Button Text=" Borrar Cuenta" Clicked="DeleteAccount" Style="{StaticResource settingButton}" BackgroundColor="{StaticResource background_color}"/>
+				<Button Text=" Borrar Cuenta" Clicked="DeleteAccount" Style="{StaticResource settingButton}" BackgroundColor="{StaticResource background_color}" TextColor="#ffb0c0"/>
 
-				<Button Text=" Asistente" Style="{StaticResource settingButton}" IsEnabled="False" BackgroundColor="#333"/>
+				<Button Text=" Asistente" Style="{StaticResource settingButton}" IsEnabled="False" BackgroundColor="#333" HeightRequest="60" FontSize="20"/>
 				<Button Text=" Género" Clicked="ChangeVoice" Style="{StaticResource settingButton}" BackgroundColor="{StaticResource background_color}"/>
-				<Button Text=" Subtítulos" Style="{StaticResource settingButton}" BackgroundColor="{StaticResource background_color}"/>
-				<Button Text=" Velocidad" Style="{StaticResource settingButton}" BackgroundColor="{StaticResource background_color}"/>
+				<Button Text=" Subtítulos" Clicked="ChangeSubtitles" Style="{StaticResource settingButton}" BackgroundColor="{StaticResource background_color}"/>
 
 			</StackLayout>
 		</Grid>
 	</ContentPage.Content>
-
-
 </ContentPage>

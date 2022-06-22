@@ -10,12 +10,6 @@
 		<Color>#222</Color>
 	</ContentPage.BackgroundColor>
 
-<!--
-	<ContentPage.BindingContext>
-		<local:RecipeViewModel/>
-	</ContentPage.BindingContext>
--->
-
 	<ContentPage.Content>
 		<Grid>
 			<AbsoluteLayout>

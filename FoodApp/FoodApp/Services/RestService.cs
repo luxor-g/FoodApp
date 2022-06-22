@@ -12,9 +12,8 @@ namespace FoodApp.Services
 	public class RestService
 	{
 		private const string RestUrl = "https://foodapp-api.azurewebsites.net/api/";
-
-		HttpClient client;
-		JsonSerializerOptions serializerOptions;
+		readonly HttpClient client;
+		readonly JsonSerializerOptions serializerOptions;
 
 		public RestService()
 		{
@@ -26,7 +25,6 @@ namespace FoodApp.Services
 				WriteIndented = true
 			};
 		}
-
 
 		public async Task<bool> CreateUsuario(Usuario usuario)
 		{
@@ -151,6 +149,25 @@ namespace FoodApp.Services
 				Debug.WriteLine(e.Message);
 				return false;
 			}
+		}
+
+		public async Task<Consejo> GetConsejo()
+		{
+			Uri uri = new Uri(string.Concat(RestUrl, "consejo/"));
+			try
+			{
+				HttpResponseMessage response = await client.GetAsync(uri);
+				if (response.IsSuccessStatusCode)
+				{
+					string content = await response.Content.ReadAsStringAsync();
+					return JsonSerializer.Deserialize<List<Consejo>>(content, serializerOptions)[0];
+				}
+			}
+			catch (Exception e)
+			{
+				Debug.WriteLine(e.Message);
+			}
+			return null;
 		}
 
 	}

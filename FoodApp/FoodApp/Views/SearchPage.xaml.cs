@@ -1,5 +1,6 @@
 using FoodApp.Models;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -38,9 +39,14 @@ namespace FoodApp.Views
 			}
 
 			var filtered = new List<Receta>();
-			foreach (var receta in App.Recetas)
-				if (receta.nombre.ToLower().Contains(searchBar.Text.ToLower()))
-					filtered.Add(receta);
+			var wordsToMatch = searchBar.Text.ToLower().Split(' ');
+			var query = from receta in App.Recetas
+						let w = receta.nombre.ToLower().Split(' ')
+						where w.Intersect(wordsToMatch).Count() == wordsToMatch.Count()
+						select receta;
+
+			foreach (var receta in query)
+				filtered.Add(receta);
 
 			collectionView.ItemsSource = filtered;
 		}

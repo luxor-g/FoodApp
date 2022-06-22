@@ -35,16 +35,16 @@ namespace FoodApp.Views
 
 		private async void ChangePassword(object sender, EventArgs e)
 		{
-			string newClave = await DisplayPromptAsync(title:"Cambiar Contraseña", message:"Introduzca su nueva contraseña.",
-				accept:"Aceptar", cancel:"Cancelar", maxLength:32, keyboard:Keyboard.Text);
+			string newClave = await DisplayPromptAsync(title: "Cambiar Contraseña", message: "Introduzca su nueva contraseña.",
+				accept: "Aceptar", cancel: "Cancelar", maxLength: 32, keyboard: Keyboard.Text);
 
-			if(!await App.restService.UpdateUsuario(new Usuario() { id=App.loggedUser, clave=newClave}))
+			if (!await App.restService.UpdateUsuario(new Usuario() { id = App.loggedUser, clave = newClave }))
 				await DisplayAlert("Alerta", "Se produjo un error al intentar cambiar la contraseña.", "Aceptar");
 		}
 
 		private async void LogoutClicked(object sender, EventArgs e)
 		{
-			if(await DisplayAlert("Cerrar Sesión", "¿Está seguro de que quiere cerrar sesión?", "Sí", "No"))
+			if (await DisplayAlert("Cerrar Sesión", "¿Está seguro de que quiere cerrar sesión?", "Sí", "No"))
 				OnLogout();
 		}
 
@@ -52,8 +52,7 @@ namespace FoodApp.Views
 		{
 			if (await DisplayAlert("Borrar Cuenta", "¿Está seguro de que quiere borrar su cuenta?", "Sí", "No"))
 			{
-				if (!await DisplayAlert("Borrar Cuenta", "ESTA ACCIÓN ES IRREVERSIBLE" +
-					"\n\n¿Está realmente seguro de que quiere borrar su cuenta?", "No", "Sí"))
+				if (!await DisplayAlert("ACCIÓN IRREVERSIBLE", "¿Está realmente seguro de que quiere borrar su cuenta?", "No", "Sí"))
 				{
 					if (await App.restService.DeleteUsuario(new Usuario() { id = App.loggedUser }))
 						OnLogout();
@@ -74,19 +73,32 @@ namespace FoodApp.Views
 		{
 			string response = await DisplayActionSheet("Género", "Cancelar", null, "Masculino", "Femenino");
 
-			if(!String.Equals(response, "Cancelar"))
+			if (!String.Equals(response, "Cancelar"))
 			{
-				if(String.Equals(response, "Masculino"))
-				{
+				if (String.Equals(response, "Masculino"))
 					App.speechService.Voice = SpeechService.MaleVoice;
-				}
 				else
-				{
 					App.speechService.Voice = SpeechService.FemaleVoice;
-				}
+
 				File.WriteAllText(Path.Combine(App.Path, "voice"), App.speechService.Voice);
 			}
 		}
 
+		private async void ChangeSubtitles(object sender, EventArgs e)
+		{
+			string response = await DisplayPromptAsync("Subtítulos", "Introduzca el tamaño que desee.\n\nRango válido desde 15 hasta 25.\nEl valor por defecto es 20.",
+				accept: "Aceptar", cancel: "Cancelar", initialValue: AssistantPage.subtitleSize.ToString(), maxLength: 2, keyboard: Keyboard.Numeric);
+
+			if (!String.IsNullOrEmpty(response))
+			{
+				int size = int.Parse(response);
+				if ((size >= 15) && (size <= 25))
+				{
+					AssistantPage.subtitleSize = size;
+					File.WriteAllText(Path.Combine(App.Path, "subtitle"), response);
+				}
+
+			}
+		}
 	}
 }

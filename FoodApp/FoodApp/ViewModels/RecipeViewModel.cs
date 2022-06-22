@@ -5,7 +5,7 @@ using Xamarin.Forms;
 
 namespace FoodApp.ViewModels
 {
-	[QueryProperty(name: "IdReceta", queryId:"id")]
+	[QueryProperty(name: "IdReceta", queryId: "id")]
 	internal class RecipeViewModel : BaseViewModel
 	{
 		public Command OnHeartClickedCommand { get; set; }
@@ -62,7 +62,7 @@ namespace FoodApp.ViewModels
 
 		private async void OnHeartClicked(object obj)
 		{
-			string empty  = "icon_heart.png";
+			string empty = "icon_heart.png";
 			string filled = "icon_heart_filled.png";
 
 			if (String.Equals(Receta.corazon, empty))
@@ -102,7 +102,6 @@ namespace FoodApp.ViewModels
 
 	}
 
-
 	public class Step
 	{
 		const string CircledNumbers = "❶❷❸❹❺❻❼❽❾❿";
@@ -115,6 +114,4 @@ namespace FoodApp.ViewModels
 			Text = text;
 		}
 	}
-
-
 }

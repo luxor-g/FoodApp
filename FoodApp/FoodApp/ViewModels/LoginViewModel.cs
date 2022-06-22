@@ -6,7 +6,7 @@ using Xamarin.Forms;
 
 namespace FoodApp.ViewModels
 {
-	public class LoginViewModel :BaseViewModel
+	public class LoginViewModel : BaseViewModel
 	{
 		private string email;
 		private string clave;

@@ -1,10 +1,7 @@
 using FoodApp.Models;
 using FoodApp.Services;
-using FoodApp.ViewModels;
-using FoodApp.Views;
 using System;
 using System.Collections.Generic;
-using System.IO;
 using Xamarin.Forms;
 
 namespace FoodApp
@@ -17,11 +14,7 @@ namespace FoodApp
 		public static int loggedUser;
 		public static string Path;
 
-
-
 		public static List<Receta> Recetas;
-
-
 
 		public App()
 		{

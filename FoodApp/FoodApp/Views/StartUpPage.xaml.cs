@@ -1,7 +1,6 @@
 using FoodApp.Models;
 using FoodApp.Services;
 using System;
-using System.Diagnostics;
 using System.IO;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -20,13 +19,13 @@ namespace FoodApp.Views
 
 		async void GoToRegister(object sender, EventArgs args) => await Navigation.PushAsync(new RegisterPage());
 
-
 		protected override async void OnAppearing()
 		{
 			base.OnAppearing();
 
 			string userPath = Path.Combine(App.Path, "user");
 			string voicePath = Path.Combine(App.Path, "voice");
+			string subtitlePath = Path.Combine(App.Path, "subtitle");
 
 			if (File.Exists(userPath))
 			{
@@ -40,13 +39,19 @@ namespace FoodApp.Views
 			}
 
 			if (File.Exists(voicePath))
-			{
 				App.speechService.Voice = File.ReadAllText(voicePath);
-			}
 			else
 			{
 				App.speechService.Voice = SpeechService.FemaleVoice;
 				File.WriteAllText(voicePath, App.speechService.Voice);
+			}
+
+			if (File.Exists(subtitlePath))
+				AssistantPage.subtitleSize = int.Parse(File.ReadAllText(subtitlePath));
+			else
+			{
+				AssistantPage.subtitleSize = 20;
+				File.WriteAllText(subtitlePath, "20");
 			}
 		}
 	}

@@ -1,7 +1,4 @@
 using FoodApp.Models;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using Xamarin.Forms;
 
 namespace FoodApp.ViewModels
@@ -10,7 +7,6 @@ namespace FoodApp.ViewModels
 	{
 		public Command ToRecipePage { get; set; }
 
-
 		public HomeViewModel()
 		{
 			ToRecipePage = new Command<Receta>(OnNav);
@@ -18,7 +14,7 @@ namespace FoodApp.ViewModels
 
 		private async void OnNav(Receta receta)
 		{
-			if(receta == null)
+			if (receta == null)
 				return;
 
 			await Shell.Current.GoToAsync(state: $"RecipePage?id={receta.id}");

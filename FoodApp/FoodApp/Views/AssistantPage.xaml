@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+						 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
 						 xmlns:views="clr-namespace:FoodApp.Views"
 						 x:Class="FoodApp.Views.AssistantPage"
 						 Shell.NavBarIsVisible="False">
@@ -16,20 +16,23 @@
 			</AbsoluteLayout>
 
 			<StackLayout VerticalOptions="Fill" Margin="0,0,0,0" Spacing="0">
+
 				<StackLayout Margin="0,15,15,10" VerticalOptions="Start" Orientation="Horizontal">
 					<views:BackButtonView/>
 					<Label Text="Asistente" Style="{StaticResource titleLeft}"/>
-					<!-- <views:MicroButtonView/> -->
 				</StackLayout>
 
-				<Grid Margin="0,150,0,0">
-					<Image Source="background_sound.png"/>
-					<Label Text="" FontFamily="Segoe" FontSize="80" TextColor="{StaticResource white_color}" HorizontalOptions="Center"/>
+				<Grid Margin="0,50,0,0">
+					<Image x:Name="background" Source="background_sound.png" Opacity="0"/>
+					<Label x:Name="micLabel" Text="" FontFamily="Segoe" FontSize="80" TextColor="{StaticResource white_color}" HorizontalOptions="Center"/>
 				</Grid>
 
-				<Label Text="¿Como puedo ayudarte?" FontSize="20" TextColor="{StaticResource white_color}" HorizontalTextAlignment="Center" Margin="0,50,0,0"/>
+				<Label x:Name="machineLabel" TextColor="{StaticResource white_color}" HorizontalTextAlignment="Center" Margin="35,20,35,0"/>
 
-				<Label x:Name="label"/>
+				<StackLayout VerticalOptions="CenterAndExpand"/>
+
+				<Label x:Name="humanLabel" HorizontalTextAlignment="Center" Margin="35,0,35,0"/>
+				<Button x:Name="recordButton" Clicked="Button_Clicked" CornerRadius="40" Margin="50" HeightRequest="80" WidthRequest="80" HorizontalOptions="Center" BackgroundColor="Red" BorderColor="White" BorderWidth="5" VerticalOptions="End"/>
 
 			</StackLayout>
 		</Grid>

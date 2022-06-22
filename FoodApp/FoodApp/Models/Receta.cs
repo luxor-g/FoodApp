@@ -12,5 +12,7 @@ namespace FoodApp.Models
 		public string pasos { get; set; }
 		public int corazones { get; set; }
 		public string corazon { get; set; }
+
+		public override string ToString() => nombre;
 	}
 }

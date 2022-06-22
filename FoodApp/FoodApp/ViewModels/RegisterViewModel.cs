@@ -8,16 +8,19 @@ namespace FoodApp.ViewModels
 		private string nombre;
 		private string email;
 		private string clave;
+
 		public string Nombre
 		{
 			get => nombre;
 			set => SetProperty(ref nombre, value);
 		}
+
 		public string Email
 		{
 			get => email;
 			set => SetProperty(ref email, value);
 		}
+
 		public string Clave
 		{
 			get => clave;

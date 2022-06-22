@@ -1,6 +1,6 @@
+using FoodApp.ViewModels;
 using System;
 using System.Text.RegularExpressions;
-using FoodApp.ViewModels;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -9,7 +9,7 @@ namespace FoodApp.Views
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class RegisterPage : ContentPage
 	{
-		RegisterViewModel rvm;
+		readonly RegisterViewModel rvm;
 		public RegisterPage()
 		{
 			InitializeComponent();
